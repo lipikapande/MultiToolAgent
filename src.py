@@ -1,3 +1,9 @@
+#### VIEW ALL FILES + OUTPUT SCREENSHOTS IN GITHUB REPO: https://github.com/lipikapande/MultiToolAgent
+
+## For now, I have added all code in this file and output as text on the bottom, 
+# since I was not allowed to upload more than one file. Please check the repo for 
+# better formatting and screenshots.
+
 import os
 import re
 import json
@@ -350,3 +356,115 @@ def run_tests():
 
 if __name__ == "__main__":
 	run_tests()
+
+######   OUTPUT OBTAINED IS AS FOLLOWS #####
+
+# Query: I attended 72 classes out of 90. Am I eligible for exams?
+
+# =======================================================
+# STEP 1 - User Input: I attended 72 classes out of 90. Am I eligible for exams?
+# =======================================================
+
+# STEP 2 - Model Decision: finish_reason = 'tool_calls'
+# STEP 3 - Tool Invoked: attendance_calculator
+# Arguments: {'attended_classes': 72, 'total_classes': 90}
+
+# STEP 4 - Tool Result: {'status': 'success', 'total_classes': 90, 'attended_classes': 72, 'percentage': 80.0, 'eligibility': 'Eligible for Exam'}
+
+# STEP 5 - Final Answer: You are eligible for exams. The attendance percentage is 80%.
+
+# Response: You are eligible for exams. The attendance percentage is 80%.
+
+# Query: My marks are 95, 90, 88, 91 and 87. What is my grade?
+
+# =======================================================
+# STEP 1 - User Input: My marks are 95, 90, 88, 91 and 87. What is my grade?
+# =======================================================
+
+# STEP 2 - Model Decision: finish_reason = 'tool_calls'
+# STEP 3 - Tool Invoked: result_calculator
+# Arguments: {'marks': [95, 90, 88, 91, 87]}
+
+# STEP 4 - Tool Result: {'status': 'success', 'marks': [95.0, 90.0, 88.0, 91.0, 87.0], 'average': 90.2, 'grade': 'A', 'result': 'Pass'}
+
+# STEP 5 - Final Answer: Your average score is 90.2, which corresponds to an 'A' grade and a pass result.
+
+# Response: Your average score is 90.2, which corresponds to an 'A' grade and a pass result.
+
+# Query: My course fee is 50000 and I have paid 35000. How much fee is pending?
+
+# =======================================================
+# STEP 1 - User Input: My course fee is 50000 and I have paid 35000. How much fee is pending?
+# =======================================================
+
+# STEP 2 - Model Decision: finish_reason = 'tool_calls'
+# STEP 3 - Tool Invoked: fee_balance_calculator
+# Arguments: {'amount_paid': 35000, 'total_course_fee': 50000}
+
+# STEP 4 - Tool Result: {'status': 'success', 'total_fee': 50000.0, 'paid': 35000.0, 'pending_fee': 15000.0}
+
+# STEP 5 - Final Answer: You have a balance of ₹15,000 pending on your course fee.
+
+# Response: You have a balance of ₹15,000 pending on your course fee.
+
+# Query: I returned a library book 8 days late. What is the fine amount?
+
+# =======================================================
+# STEP 1 - User Input: I returned a library book 8 days late. What is the fine amount?
+# =======================================================
+
+# STEP 2 - Model Decision: finish_reason = 'tool_calls'
+# STEP 3 - Tool Invoked: library_fine_calculator
+# Arguments: {'delayed_days': 8}
+
+# STEP 4 - Tool Result: {'status': 'success', 'delayed_days': 8, 'fine_amount': 40, 'fine_display': '₹40', 'explicit_response_text': 'The library fine for 8 delayed days is ₹40 (calculated at ₹5 per day).'}
+
+# STEP 5 - Final Answer: The library fine for 8 delayed days is ₹40 (calculated at ₹5 per day).
+
+# Response: The library fine for 8 delayed days is ₹40 (calculated at ₹5 per day).
+
+# Query: Hostel fee is 6000 per month and I stayed for 5 months. Calculate my hostel fee.
+
+# =======================================================
+# STEP 1 - User Input: Hostel fee is 6000 per month and I stayed for 5 months. Calculate my hostel fee.
+# =======================================================
+
+# STEP 2 - Model Decision: finish_reason = 'tool_calls'
+# STEP 3 - Tool Invoked: hostel_fee_calculator
+# Arguments: {'monthly_hostel_fee': 6000, 'months_stayed': 5}
+
+# STEP 4 - Tool Result: {'status': 'success', 'monthly_fee': 6000.0, 'months': 5, 'total_hostel_fee': 30000.0}
+
+# STEP 5 - Final Answer: You are required to pay ₹30,000 as hostel fees.
+
+# Response: You are required to pay ₹30,000 as hostel fees.
+
+# Query: I attended 80 classes out of 100.My marks are 90, 85, 88, 92 and 95.My course fee is 60000 and I paid 45000.Provide:1. Attendance Status2. Grade3. Pending Fee
+
+# =======================================================
+# STEP 1 - User Input: I attended 80 classes out of 100.My marks are 90, 85, 88, 92 and 95.My course fee is 60000 and I paid 45000.Provide:1. Attendance Status2. Grade3. Pending Fee
+# =======================================================
+
+# STEP 2 - Model Decision: finish_reason = 'tool_calls'
+# STEP 3 - Tool Invoked: attendance_calculator
+# Arguments: {'attended_classes': 80, 'total_classes': 100}
+
+# STEP 4 - Tool Result: {'status': 'success', 'total_classes': 100, 'attended_classes': 80, 'percentage': 80.0, 'eligibility': 'Eligible for Exam'}
+# STEP 3 - Tool Invoked: result_calculator
+# Arguments: {'marks': [90, 85, 88, 92, 95]}
+
+# STEP 4 - Tool Result: {'status': 'success', 'marks': [90.0, 85.0, 88.0, 92.0, 95.0], 'average': 90.0, 'grade': 'A', 'result': 'Pass'}
+# STEP 3 - Tool Invoked: fee_balance_calculator
+# Arguments: {'amount_paid': 45000, 'total_course_fee': 60000}
+
+# STEP 4 - Tool Result: {'status': 'success', 'total_fee': 60000.0, 'paid': 45000.0, 'pending_fee': 15000.0}
+
+# STEP 5 - Final Answer: Based on the above calculations:
+# 1. Attendance Status: Eligible for Exam (80% attendance)
+# 2. Grade: A (Average marks: 90)
+# 3. Pending Fee: ₹15000
+
+# Response: Based on the above calculations:
+# 1. Attendance Status: Eligible for Exam (80% attendance)
+# 2. Grade: A (Average marks: 90)
+# 3. Pending Fee: ₹15000
