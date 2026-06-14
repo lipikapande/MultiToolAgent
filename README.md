@@ -3,11 +3,13 @@
 A compact Python project that routes user queries to deterministic utility tools (attendance, results, fee balance, library fine, hostel fee, student lookup) and can optionally use a Groq-based LLM to decide which tool to call.
 
 **Prerequisites:**
+
 - Python 3.10+ installed
 - A virtual environment (recommended)
 - A valid `GROQ_API_KEY` stored in a `.env` file at the project root
 
 **Files of interest:**
+
 - **`src.py`**: Consolidated single-file implementation (tools, schemas, Groq client, agent, demo runner).
 - **`agents/multi_tool_agent.py`**: Project agent that uses the Groq client and tool-calling schema.
 - **`tools/`**: Individual tool implementations used by the agent (attendance, result, fee balance, library fine, hostel fee, student info).
@@ -52,11 +54,13 @@ python -m demos.multi_tool
 ```
 
 **Notes & tips:**
+
 - The Groq-driven agent returns deterministic JSON-like tool outputs (tools always return a `status` field).
 - If you prefer a pure deterministic, dependency-free path, use `src.py` which bundles everything.
 - `agents/multi_tool_agent.py` is wired to use `utils/groq_client.py` and the `multi_tool_schema` for function-style tool calls.
 - `.gitignore` now includes common virtualenv and `__pycache__` patterns.
 
 If you want, I can:
+
 - Run the demo and paste the output here.
 - Convert `agents/multi_tool_agent.py` to use LangChain's `create_tool_calling_agent()` and `AgentExecutor` with `@tool` wrappers — only if you request it.
